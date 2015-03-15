@@ -168,7 +168,7 @@ def unzipImage(imagefile):
     return rawFilename
 
 def extractZipNameFromUrl(url):
-  return re.search(r"/(CTDebian.*)", url).group(1)
+  return re.search(r"/(Cubietruck.*)", url).group(1)
 
 #http://stackoverflow.com/questions/1131220/get-md5-hash-of-big-files-in-python
 def checksum_md5(filename, block_size=2**20):
@@ -184,7 +184,7 @@ def cubieinstaller():
     disk = deviceinput()
     # should downloading and extraction be done?
     redl = "" # so that redl == "yes" doesn't throw an error
-    listCTDebianZips = glob.glob('CTDebian*.zip')
+    listCTDebianZips = glob.glob('Cubietruck*.zip')
     debianZipExist = (len(listCTDebianZips) != 0)
     debianZipToInstall = ""
     if debianZipExist:
@@ -199,7 +199,7 @@ def cubieinstaller():
 
         var = input("Which version (1 - {}): ".format(len(list)))
         val = int(var) - 1
-        debianZipToInstall = extractZipNameFromUrl(list[val])
+        debianZipToInstall = list[val]
         # call the dl
         download(baseUrl + list[val])
     # now we can image
