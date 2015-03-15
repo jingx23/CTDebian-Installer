@@ -179,7 +179,7 @@ def checksum_md5(filename, block_size=2**20):
     return md5.hexdigest()
 
 def cubieinstaller():
-    baseUrl = "http://cubie.nobrainz.de/"
+    baseUrl = "http://mirror.igorpecovnik.com/"
     # configure the device to image
     disk = deviceinput()
     # should downloading and extraction be done?
@@ -192,7 +192,7 @@ def cubieinstaller():
     if redl == "yes" or len(listCTDebianZips) == 0:
         list = []
         count = 1;
-        for (url, desc) in re.findall('''href=["](.*CTDebian[^"]+)["]>(.[^"]+)</a>''', urllib2.urlopen(baseUrl).read(), re.I):
+        for (url, desc) in re.findall('''href=["](.*Cubietruck[^"]+)["]>(.[^"]+)</a>''', urllib2.urlopen(baseUrl).read(), re.I):
           list.append(url)
           print "{}) {}".format(count, desc)
           count = count + 1
